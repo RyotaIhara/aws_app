@@ -1,10 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Type;
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| Web Routesj
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
@@ -15,4 +16,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::resource('types', 'App\Http\Controllers\TypeController');
+
+Route::get('/contents/softdelete', function() {
+    Type::find(5)->delete();
 });
