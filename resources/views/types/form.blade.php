@@ -1,10 +1,6 @@
-<table>
-  <tr>
-      <th>name: </th>
-      <td><input type='text' name='name' value="{{ $name }}"></td>
-  </tr>
-  <tr>
-      <th>送信: </th>
-      <td><input type='submit' value="送信"></td>
-  </tr>
-</table>
+<div class="form-group">
+  <label for="name">種別名</label>
+  <input type="text" name='name' class="form-control" value="{{ $name }}">
+</div>
+
+<input type='submit' value="送信" class="btn btn-primary">

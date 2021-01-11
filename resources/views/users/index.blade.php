@@ -1,15 +1,15 @@
 @extends('layout.app')
 
-@section('title', '種別一覧')
+@section('title', 'ユーザー一覧')
 
 @section('style')
-<link rel="stylesheet" href="{{ asset('css/types/index.css') }}">
+<link rel="stylesheet" href="{{ asset('css/users/index.css') }}">
 @endsection
 
 @section('content')
-    <h2>種別一覧</h2>
+    <h2>ユーザー一覧</h2>
     <div class="toChangePage">
-        <a class="btn btn-success" href="/types/create">新規作成</a>
+        <a class="btn btn-success" href="/users/create">新規作成</a>
     </div>
     <table class="table ">
         <thead class="table-primary">
@@ -19,17 +19,17 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($types as $type)
+            @foreach ($users as $user)
                 <tr>
-                    <td>{{$type->name}}</td>
+                    <td>{{$user->name}}</td>
                     <td>
                         <div id="actionBtn">
                             {{-- 編集ボタン --}}
-                            <a class="btn btn-primary" href="/types/{{$type->id}}/edit">編集</a>
+                            <a class="btn btn-primary" href="/users/{{$user->id}}/edit">編集</a>
                         </div>
                         <div id="actionBtn">
                             {{-- 削除ボタン --}}
-                            @include('share.delete', ['target' => 'types', 'data' => $type])
+                            @include('share.delete', ['target' => 'users', 'data' => $user])
                         </div>
                     </td>
                 </tr>
