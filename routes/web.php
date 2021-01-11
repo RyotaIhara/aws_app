@@ -19,7 +19,12 @@ Route::get('/', function () {
 });
 
 Route::resource('types', 'App\Http\Controllers\TypeController');
+Route::resource('users', 'App\Http\Controllers\UserController');
 
-Route::get('/contents/softdelete', function() {
-    Type::find(5)->delete();
-});
+Route::get('login', 'App\Http\Controllers\AuthController@getAuth');
+Route::post('login', 'App\Http\Controllers\AuthController@postAuth');
+Route::get('logout', 'App\Http\Controllers\AuthController@logout');
+
+//Auth::routes();
+
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
