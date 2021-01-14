@@ -22,4 +22,9 @@ class Type extends Model
     {
         return '名前：'.$this -> name;
     }
+
+    public function stocks()
+    {
+        return $this->hasMany('App\Model\Stock');
+    }
 }
