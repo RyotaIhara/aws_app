@@ -26,6 +26,7 @@ Route::get('login', 'App\Http\Controllers\AuthController@getAuth');
 Route::post('login', 'App\Http\Controllers\AuthController@postAuth');
 Route::get('logout', 'App\Http\Controllers\AuthController@logout');
 
+//git revertのテスト
 //Auth::routes();
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
