@@ -21,6 +21,11 @@ class User extends Authenticatable
         'password' => 'required'
     );
 
+    public function stocks()
+    {
+        return $this->hasMany('App\Model\Stock');
+    }
+
     /**
      * The attributes that are mass assignable.
      *

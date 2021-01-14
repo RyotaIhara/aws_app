@@ -20,6 +20,7 @@ Route::get('/', function () {
 
 Route::resource('types', 'App\Http\Controllers\TypeController');
 Route::resource('users', 'App\Http\Controllers\UserController');
+Route::resource('stocks', 'App\Http\Controllers\StockController');
 
 Route::get('login', 'App\Http\Controllers\AuthController@getAuth');
 Route::post('login', 'App\Http\Controllers\AuthController@postAuth');

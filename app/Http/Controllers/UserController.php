@@ -24,6 +24,7 @@ class UserController extends Controller
         $this->validate($request, User::$rules);
         $user = new User;
         $form = $request->all();
+        $form['password'] = Hash::make($request->password);
         unset($form['_token']);
         $user->fill($form)->save();
         return redirect('/users');
