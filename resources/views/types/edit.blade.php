@@ -11,6 +11,6 @@
         @csrf
         @method('PUT')
         <input type='hidden' name='id' value='{{$type->id}}'>
-        @include('types.form', ['name' => $type->name])
+        @include('types.form', ['type_name' => $type->type_name])
     </form>
 @endsection

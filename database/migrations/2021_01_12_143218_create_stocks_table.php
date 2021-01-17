@@ -15,14 +15,17 @@ class CreateStocksTable extends Migration
     {
         Schema::create('stocks', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->integer('type_id');
-            $table->integer('amount');
-            $table->string('note');
+            $table->integer('user_id')->nullable(false);
+            $table->integer('type_id')->nullable(false);
+            $table->integer('amount')->nullable(false);
+            $table->string('note')->nullable(true);
             $table->timestamps();
 
             // 論理削除
             $table->softDeletes();
+
+            // 複数カラムのunique設定
+            $table->unique(['user_id','type_id']);   
         });
     }
 

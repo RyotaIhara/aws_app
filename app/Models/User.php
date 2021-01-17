@@ -16,9 +16,10 @@ class User extends Authenticatable
     protected $dates = ['deleted_at'];
 
     public static $rules = array(
-        'name' => 'required',
-        'email' => 'required',
-        'password' => 'required'
+        'user_name' => 'required|max:100',
+        'email' => 'required|email|unique:users',
+        'password' => 'required|regex:/\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,}+\z/i',
+        'password_confirm' => 'required|same:password'
     );
 
     public function stocks()
@@ -32,7 +33,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name',
+        'user_name',
         'email',
         'password',
     ];

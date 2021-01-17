@@ -12,7 +12,7 @@
         @method('PUT')
         <input type='hidden' name='id' value='{{$user->id}}'>
         @include('users.form', 
-            ['name' => $user->name,
+            ['user_name' => $user->user_name,
             'email' => $user->email]
         )
     </form>

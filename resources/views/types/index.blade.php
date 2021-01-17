@@ -21,7 +21,7 @@
         <tbody>
             @foreach ($types as $type)
                 <tr>
-                    <td>{{$type->name}}</td>
+                    <td>{{$type->type_name}}</td>
                     <td>
                         <div id="actionBtn">
                             {{-- 編集ボタン --}}
