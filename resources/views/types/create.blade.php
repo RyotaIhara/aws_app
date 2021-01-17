@@ -9,6 +9,6 @@
     </div>
     <form action="{{ route("types.store") }}" method="post">
         @csrf
-        @include('types.form', ['name' => old('name')])
+        @include('types.form', ['type_name' => old('type_name')])
     </form>
 @endsection

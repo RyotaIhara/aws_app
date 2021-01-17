@@ -15,12 +15,12 @@ class Type extends Model
     protected $dates = ['deleted_at'];
 
     public static $rules = array(
-        'name' => 'required'
+        'type_name' => 'required|unique:types|max:100'
     );
 
     public function getData()
     {
-        return '名前：'.$this -> name;
+        return '名前：'.$this -> type_name;
     }
 
     public function stocks()

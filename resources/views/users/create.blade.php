@@ -10,7 +10,7 @@
     <form action="{{ route("users.store") }}" method="post">
         @csrf
         @include('users.form', 
-            ['name' => old('name'),
+            ['user_name' => old('user_name'),
             'email' => old('email')]
         )
     </form>

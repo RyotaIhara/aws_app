@@ -24,8 +24,8 @@
         <tbody>
             @foreach ($stocks as $stock)
                 <tr>
-                    <td>{{$stock->user->name}}</td>
-                    <td>{{$stock->type->name}}</td>
+                    <td>{{$stock->user->user_name}}</td>
+                    <td>{{$stock->type->type_name}}</td>
                     <td>{{$stock->amount}}</td>
                     <td>{{$stock->note}}</td>
                     <td>
@@ -38,9 +38,6 @@
                             @include('share.delete', ['target' => 'stocks', 'data' => $stock])
                         </div>
                     </td>
-                </tr>
-                <tr>
-                    
                 </tr>
             @endforeach
         </tbody>

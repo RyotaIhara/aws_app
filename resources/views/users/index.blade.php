@@ -21,7 +21,7 @@
         <tbody>
             @foreach ($users as $user)
                 <tr>
-                    <td>{{$user->name}}</td>
+                    <td>{{$user->user_name}}</td>
                     <td>
                         <div id="actionBtn">
                             {{-- 編集ボタン --}}
