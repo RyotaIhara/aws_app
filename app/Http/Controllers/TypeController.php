@@ -3,10 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Type;
+use App\Models\Authentication;
 use Illuminate\Http\Request;
 
 class TypeController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin_auth');
+    }
+
     public function index()
     {
         $types = Type::all();

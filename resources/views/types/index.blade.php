@@ -3,7 +3,6 @@
 @section('title', '種別一覧')
 
 @section('style')
-<link rel="stylesheet" href="{{ asset('css/types/index.css') }}">
 @endsection
 
 @section('content')
