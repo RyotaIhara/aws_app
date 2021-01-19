@@ -15,7 +15,7 @@ class AuthController extends Controller
     {
         if (Auth::check())
         {
-            $param = ['message' => 'ログインしています。（' . Auth::user()->name . '）'];
+            $param = ['message' => 'ログインしています。（' . Auth::user()->user_name . '）'];
         } else {
             $param = ['message' => 'ログインしてください'];
         }
@@ -24,15 +24,16 @@ class AuthController extends Controller
 
     public function postAuth(Request $request)
     {
-        $name = $request->name;
+        $user_name = $request->user_name;
         $password = $request->password;
-        if (Auth::attempt(['name' => $name,
+        if (Auth::attempt(['user_name' => $user_name,
             'password' => $password])) {
-            $msg = 'ログインしました。（' . Auth::user()->name . '）';
+            return redirect('/stocks');
         } else {
             $msg = 'ログインに失敗しました';
+            return view('auth.login', ['message' => $msg]);
         }
-        return view('auth.login', ['message' => $msg]);
+        
     }
 
     public function logout(Request $request)
@@ -40,10 +41,9 @@ class AuthController extends Controller
         if (Auth::check())
         {
             Auth::logout();
-            $param = ['message' => 'ログインしてください。'];
-        } else {
-            $param = ['message' => 'ログインしていません'];
         }
+
+        $param = ['message' => 'ログインしてください。'];
         return view('auth.login', $param);
     }
 }

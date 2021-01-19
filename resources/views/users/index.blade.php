@@ -3,7 +3,6 @@
 @section('title', 'ユーザー一覧')
 
 @section('style')
-<link rel="stylesheet" href="{{ asset('css/users/index.css') }}">
 @endsection
 
 @section('content')

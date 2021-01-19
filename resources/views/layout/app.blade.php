@@ -20,6 +20,36 @@
 </head>
 <body>
   <div class="container">
+    @if (Auth::check())
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark nav-design">
+        <a class="navbar-brand" href="/stocks">ストック管理アプリ</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item @if(Request::routeIs('stocks', 'stocks.*')) active @endif">
+              <a class="nav-link" href="/stocks">ストック</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link @if(Request::routeIs('types', 'types.*')) active @endif" href="/types">種別</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link @if(Request::routeIs('users', 'users.*')) active @endif" href="/users">ユーザー</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ Auth::user()->user_name }}
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                   <a class="dropdown-item" href="/logout">ログアウト</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    @endif
+
     @yield('content')
   </div>
 

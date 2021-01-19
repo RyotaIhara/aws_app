@@ -10,6 +10,11 @@ use Illuminate\Support\MessageBag;
 
 class StockController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin_auth');
+    }
+
     public function index()
     {
         $stocks = Stock::all();

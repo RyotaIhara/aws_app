@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin_auth', ['except' => ['create', 'store']]);
+    }
+
     public function index()
     {
         $users = User::all();
