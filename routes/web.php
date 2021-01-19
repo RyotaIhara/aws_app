@@ -14,9 +14,7 @@ use App\Models\Type;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'App\Http\Controllers\StockController@index');
 
 Route::resource('types', 'App\Http\Controllers\TypeController');
 Route::resource('users', 'App\Http\Controllers\UserController');
